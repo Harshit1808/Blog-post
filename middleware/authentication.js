@@ -2,7 +2,6 @@ const jwt = require('jsonwebtoken');
 const { User } = require('../model/userSchema');
 const authenticate = (req, res, next) => {
   try {
-    console.log("auth check")
     const token = req.header('Authorization').replace('Bearer ', '');
     const decoded = jwt.verify(token, 'secret');
     const userId = decoded.userId;
